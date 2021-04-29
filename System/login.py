@@ -32,7 +32,7 @@ class LoginLayout:
 
         Label(self._window, text="").pack()
         Label(self._window, text="PASSWORD").pack()
-        self._pwrdIn = Entry(self._window, textvariable="password")
+        self._pwrdIn = Entry(self._window, textvariable="password", show="*")
         self._pwrdIn.pack()
 
         Label(self._window, text="").pack()
@@ -60,6 +60,7 @@ class LoginLayout:
         if response.status_code == 200:
             json_data = response.json()
             self._jwt = json_data['jwt']
+            # messagebox.showwarning(title="Success", message="Login Successful!")
             self._window.destroy()
         else:
             messagebox.showwarning(title="Login Error", message="Invalid Login")
