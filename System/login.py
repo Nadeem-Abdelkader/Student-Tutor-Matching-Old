@@ -26,17 +26,17 @@ class LoginLayout:
         Label(self._window, text="Please enter login details").pack()
 
         Label(self._window, text="").pack()
-        Label(self._window, text="USERNAME").pack()
+        Label(self._window, text="Username").pack()
         self._unameIn = Entry(self._window, textvariable="username")
         self._unameIn.pack()
 
         Label(self._window, text="").pack()
-        Label(self._window, text="PASSWORD").pack()
+        Label(self._window, text="Password").pack()
         self._pwrdIn = Entry(self._window, textvariable="password", show="*")
         self._pwrdIn.pack()
 
         Label(self._window, text="").pack()
-        Button(self._window, text="LOGIN", command=self.apiSignIn, width=10, height=1).pack()
+        Button(self._window, text="Login", command=self.apiSignIn, width=10, height=1).pack()
 
         self._pwrdIn.insert(0, "mbrown123")
         self._unameIn.insert(0, "mbrown123")
