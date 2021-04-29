@@ -20,20 +20,20 @@ class LoginLayout:
 
     def login(self):
         self._window = Tk()
-        self._window.geometry('400x150')
-        self._window.title('Student - Tutor Matching Software (Login Page)')
+        self._window.geometry('400x250')
+        self._window.title('Login')
 
-        lbl1 = Label(self._window, text="User Name").grid(row=0, column=0)
+        lbl1 = Label(self._window, text="USERNAME").grid(row=0, column=0)
         username = StringVar()
         self._unameIn = Entry(self._window, textvariable=username)
         self._unameIn.grid(row=0, column=1)
 
-        lbl1 = Label(self._window, text="Password").grid(row=1, column=0)
+        lbl1 = Label(self._window, text="PASSWORD").grid(row=1, column=0)
         password = StringVar()
         self._pwrdIn = Entry(self._window, textvariable=password)
         self._pwrdIn.grid(row=1, column=1)
 
-        loginBtn = Button(self._window, text="Login")
+        loginBtn = Button(self._window, text="LOGIN")
         loginBtn.grid(row=4, column=0)
         loginBtn.configure(command=self.apiSignIn)
 
