@@ -1,4 +1,4 @@
-from session import *
+from select_action import *
 from user_collection import *
 
 
@@ -10,7 +10,7 @@ class Application:
         a = LoginLayout(self.API_KEY)
         jwt, uname = a.login()
         if jwt is not None:
-            s = Session(self.USERS.getUserByUsername(uname))
+            s = SelectAction(self.USERS.getUserByUsername(uname))
             s.start()
 
 
