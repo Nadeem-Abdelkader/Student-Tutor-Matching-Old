@@ -29,28 +29,14 @@ class LoginLayout:
         Label(self._window, text="USERNAME").pack()
         self._unameIn = Entry(self._window, textvariable="username")
         self._unameIn.pack()
-        # Label(self._window, text="USERNAME").grid(row=0, column=0)
-        # username = StringVar()
-        # self._unameIn = Entry(self._window, textvariable=username)
-        # self._unameIn.grid(row=0, column=1)
 
         Label(self._window, text="").pack()
         Label(self._window, text="PASSWORD").pack()
         self._pwrdIn = Entry(self._window, textvariable="password")
         self._pwrdIn.pack()
 
-        # Label(self._window, text="PASSWORD").grid(row=1, column=0)
-        # password = StringVar()
-        # self._pwrdIn = Entry(self._window, textvariable=password)
-        # self._pwrdIn.grid(row=1, column=1)
-
         Label(self._window, text="").pack()
         Button(self._window, text="LOGIN", command=self.apiSignIn, width=10, height=1).pack()
-        # loginBtn = Button(self._window, text="Login", width=10, height=1)
-        # loginBtn.configure(command=self.apiSignIn())
-        # loginBtn = Button(self._window, text="LOGIN", width=10, height=1).pack()
-        # loginBtn.grid(row=4, column=0)
-        # loginBtn.configure(command=self.apiSignIn)
 
         self._pwrdIn.insert(0, "mbrown123")
         self._unameIn.insert(0, "mbrown123")
