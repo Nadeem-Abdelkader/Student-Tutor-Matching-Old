@@ -1,5 +1,5 @@
 from tkinter import ttk
-from Auth import *
+from auth import *
 
 root_url = 'https://fit3077.com/api/v1'
 users_url = root_url + "/user"

@@ -1,5 +1,5 @@
-from Session import *
-from UserCollection import *
+from session import *
+from user_collection import *
 
 
 class Application:
