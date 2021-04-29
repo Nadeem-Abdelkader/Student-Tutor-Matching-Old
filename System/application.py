@@ -1,5 +1,6 @@
-from select_action import *
-from user_collection import *
+from login import LoginLayout
+from select_action import SelectAction
+from user_collection import UserCollection
 
 
 class Application:
