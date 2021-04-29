@@ -7,7 +7,7 @@ class Application:
     USERS = UserCollection(API_KEY)
 
     def __init__(self):
-        a = Auth(self.API_KEY)
+        a = LoginLayout(self.API_KEY)
         jwt, uname = a.login()
         if jwt is not None:
             s = Session(self.USERS.getUserByUsername(uname))
