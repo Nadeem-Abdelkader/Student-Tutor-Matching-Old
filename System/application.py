@@ -14,4 +14,5 @@ class Application:
             s.start()
 
 
-a = Application()
+if __name__ == "__main__":
+    a = Application()
