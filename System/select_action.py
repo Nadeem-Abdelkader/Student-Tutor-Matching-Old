@@ -36,7 +36,7 @@ class SelectAction:
         s.start()
 
     def bid_on_student(self):
-        self.window.destroy()
+        self.window.destroy(self.current_user, SelectAction.API_KEY)
         s = BidOnStudent()
         s.start()
 

@@ -1,11 +1,12 @@
 from tkinter import *
-
+import requests
 
 class BidOnStudent:
     window = None
 
-    def __init__(self):
-        pass
+    def __init__(self, current, api_key):
+        self.current_user = current
+        self.api_key = api_key
 
     def start(self):
         self.window = Tk()
@@ -78,6 +79,9 @@ class BidOnStudent:
         return
 
     def see_all_bids(self):
+        bidurl = "https://fit3077.com/api/v1/bid?fields="
+        response = requests.get(url=bidurl, headers={'Authorization':'mPRM67bLTWDwchrMCtBCrWbh89tQb6'})
+        return response.json()
         pass
 
     def create_bid(self):
