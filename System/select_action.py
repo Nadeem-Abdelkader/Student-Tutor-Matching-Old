@@ -5,9 +5,6 @@ from new_tutor_request import NewTutorRequest
 from see_contracts import SeeContracts
 from user_collection import UserCollection
 
-root_url = 'https://fit3077.com/api/v1'
-users_url = root_url + "/user"
-
 
 class SelectAction:
     API_KEY = "mPRM67bLTWDwchrMCtBCrWbh89tQb6"
