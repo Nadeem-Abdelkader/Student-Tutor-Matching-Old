@@ -33,7 +33,7 @@ class NewTutorRequest:
         # Label(self.window, text="").pack()
         Label(self.window, text="Subject: ").grid(row=2, column=0)
 
-        SUBJECTS = ["", ""]
+        SUBJECTS = ["placeholder", "placeholder"]
 
         variable = StringVar(self.window)
         variable.set(SUBJECTS[0])

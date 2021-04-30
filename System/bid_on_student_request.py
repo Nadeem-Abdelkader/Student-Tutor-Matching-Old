@@ -11,18 +11,21 @@ class BidOnStudent:
         self.window = Tk()
         self.window.title("Bid on Student Request")
         self.window.geometry('300x250')
-        self.window.mainloop()
 
         Label(self.window, text="Search request for subject: ").grid(row=0, column=0)
 
-        OPTIONS = ["Open", "Closed"]
+        SUBJECTS = ["", ""]
 
         variable = StringVar(self.window)
-        variable.set(OPTIONS[0])
-        w = OptionMenu(self.window, variable, *OPTIONS)
+        variable.set(SUBJECTS[0])
+        w = OptionMenu(self.window, variable, *SUBJECTS)
         w.configure(width=20)
         w.grid(row=0, column=1)
 
+        Label(self.window, text="Search request for subject: ").grid(row=0, column=0)
+
+
+        self.window.mainloop()
 
 
         return
