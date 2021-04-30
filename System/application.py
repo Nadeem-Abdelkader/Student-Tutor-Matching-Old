@@ -9,10 +9,11 @@ class Application:
 
     def __init__(self):
         a = Login(self.API_KEY)
-        jwt, uname = a.login()
-        if jwt is not None:
-            s = SelectAction(self.USERS.getUserByUsername(uname))
-            s.start()
+        a.login()
+        # jwt, uname = a.login()
+        # if jwt is not None:
+        #     s = SelectAction(self.USERS.getUserByUsername(uname))
+        #     s.start()
 
 
 if __name__ == "__main__":
