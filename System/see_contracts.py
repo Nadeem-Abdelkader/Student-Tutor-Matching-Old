@@ -5,7 +5,7 @@ class SeeContracts:
     window = None
 
     def __init__(self):
-        None
+        pass
 
     def start(self):
         self.window = Tk()

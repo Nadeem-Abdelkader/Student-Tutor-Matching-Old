@@ -9,8 +9,8 @@ subjects_url = root_url + "/subject"
 
 class Subject:
     API_KEY = "mPRM67bLTWDwchrMCtBCrWbh89tQb6"
-    subject_id = None
-    subject_name = None
+    # subject_id = None
+    # subject_name = None
 
     def __init__(self):
         pass
