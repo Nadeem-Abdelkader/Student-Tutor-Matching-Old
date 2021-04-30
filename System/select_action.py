@@ -1,6 +1,8 @@
 from tkinter import *
 
+from bid_on_student_request import BidOnStudent
 from new_tutor_request import NewTutorRequest
+from see_contracts import SeeContracts
 from user_collection import UserCollection
 
 root_url = 'https://fit3077.com/api/v1'
@@ -36,7 +38,11 @@ class SelectAction:
         s.start()
 
     def bid_on_student(self):
-        None
+        self.window.destroy()
+        s = BidOnStudent()
+        s.start()
 
     def see_contract(self):
-        None
+        self.window.destroy()
+        s = SeeContracts()
+        s.start()
