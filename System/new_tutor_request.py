@@ -33,6 +33,14 @@ class NewTutorRequest:
         # Label(self.window, text="").pack()
         Label(self.window, text="Subject: ").grid(row=2, column=0)
 
+        SUBJECTS = ["", ""]
+
+        variable = StringVar(self.window)
+        variable.set(SUBJECTS[0])
+        w = OptionMenu(self.window, variable, *SUBJECTS)
+        w.configure(width=20)
+        w.grid(row=2, column=1)
+
         # Label(self.window, text="").pack()
         Label(self.window, text="Competency: ").grid(row=4, column=0)
 
