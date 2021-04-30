@@ -6,7 +6,8 @@ from subject import Subject
 
 class BidOnStudent:
     window = None
-
+    current_user = None
+    api_key = None
     def __init__(self, current, api_key):
         self.current_user = current
         self.api_key = api_key
@@ -38,6 +39,9 @@ class BidOnStudent:
         # left as text for now
         t = Text(self.window, height=5, width=40)
         t.grid(row=5)
+        # x = self.see_all_bids()
+        # for i in x:
+        #     t.insert(INSERT, str(i) + "\n")
         # a.grid(row=3)
 
         Label(self.window, text="Create a bid: ").grid(row=6, column=0)
@@ -84,6 +88,7 @@ class BidOnStudent:
     def see_all_bids(self):
         bidurl = "https://fit3077.com/api/v1/bid?fields="
         response = requests.get(url=bidurl, headers={'Authorization':'mPRM67bLTWDwchrMCtBCrWbh89tQb6'})
+        print(response.json())
         return response.json()
         pass
 
