@@ -2,6 +2,7 @@ from tkinter import *
 from datetime import datetime
 import requests
 
+from new_request_details import NewRequestDetails
 from subject import Subject
 
 
@@ -142,4 +143,8 @@ class NewTutorRequest:
         print('Status code is: {} {}'.format(response.status_code, response.reason))
         print('Full JSON response is: {}'.format(json_data))
 
-        pass
+        self.window.destroy()
+        additionalInfo = {"competency" : self.competency.get(), "hours_per_week": self.hours_per_session.get(),
+                          "sessions_per_week" : self.sessions_per_week.get(), "rate_per_session" : self.rate_per_session}
+        d = NewRequestDetails(json_data, additionalInfo)
+        d.start()
