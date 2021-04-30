@@ -1,14 +1,15 @@
-from bid_on_student_request import bid_on_student_request
-from new_tutor_request import new_tutor_request
-from see_contracts import see_contracts
 from tkinter import *
+
+from new_tutor_request import NewTutorRequest
+from user_collection import UserCollection
 
 root_url = 'https://fit3077.com/api/v1'
 users_url = root_url + "/user"
-api_key = "mPRM67bLTWDwchrMCtBCrWbh89tQb6"
 
 
 class SelectAction:
+    API_KEY = "mPRM67bLTWDwchrMCtBCrWbh89tQb6"
+    USERS = UserCollection(API_KEY)
     current_user = None
     window = None
 
@@ -21,9 +22,21 @@ class SelectAction:
         self.window.title('Welcome')
         Label(text="Welcome back, what do you want to do today? ", width="300", height="2", font=("Calibri", 13)).pack()
         Label(text="").pack()
-        Button(text="New Tutor Request", height="2", width="30", command=new_tutor_request).pack()
+        Button(text="New Tutor Request", height="2", width="30", command=self.new_request).pack()
         Label(text="").pack()
-        Button(text="Bid on Student Request", height="2", width="30", command=bid_on_student_request).pack()
+        Button(text="Bid on Student Request", height="2", width="30", command=self.bid_on_student).pack()
         Label(text="").pack()
-        Button(text="See Your Contracts", height="2", width="30", command=see_contracts).pack()
+        Button(text="See Your Contracts", height="2", width="30", command=self.see_contract).pack()
         self.window.mainloop()
+        return
+
+    def new_request(self):
+        self.window.destroy()
+        s = NewTutorRequest()
+        s.start()
+
+    def bid_on_student(self):
+        None
+
+    def see_contract(self):
+        None
