@@ -16,7 +16,7 @@ class NewTutorRequest:
     def start(self):
         self.window = Tk()
         self.window.title("New Tutor Request")
-        self.window.geometry('400x250')
+        self.window.geometry('400x200')
 
         # Label(self.window, text="").pack()
         Label(self.window, text="Bid Type: ").grid(row=0, column=0)
