@@ -3,9 +3,15 @@ from tkinter import *
 
 class NewTutorRequest:
     window = None
+    bid_type = None
+    subject = None
+    competency = None
+    hours_per_session = None
+    sessions_per_week = None
+    rate_per_session = None
 
     def __init__(self):
-        None
+        pass
 
     def start(self):
         self.window = Tk()
@@ -19,7 +25,9 @@ class NewTutorRequest:
 
         variable = StringVar(self.window)
         variable.set(OPTIONS[0])
-        w = OptionMenu(self.window, variable, *OPTIONS).grid(row=0, column=1)
+        w = OptionMenu(self.window, variable, *OPTIONS)
+        w.configure(width=20)
+        w.grid(row=0, column=1)
         # w.pack()
 
         # Label(self.window, text="").pack()
@@ -32,7 +40,9 @@ class NewTutorRequest:
 
         variable = StringVar(self.window)
         variable.set(NUMBERS[0])
-        w = OptionMenu(self.window, variable, *NUMBERS).grid(row=4, column=1)
+        w = OptionMenu(self.window, variable, *NUMBERS)
+        w.configure(width=20)
+        w.grid(row=4, column=1)
         # w.pack()
 
         # Label(self.window, text="").pack()
@@ -40,7 +50,9 @@ class NewTutorRequest:
 
         variable = StringVar(self.window)
         variable.set(NUMBERS[0])
-        w = OptionMenu(self.window, variable, *NUMBERS).grid(row=6, column=1)
+        w = OptionMenu(self.window, variable, *NUMBERS)
+        w.configure(width=20)
+        w.grid(row=6, column=1)
         # w.pack()
 
         # Label(self.window, text="").pack()
@@ -48,7 +60,9 @@ class NewTutorRequest:
 
         variable = StringVar(self.window)
         variable.set(NUMBERS[0])
-        w = OptionMenu(self.window, variable, *NUMBERS).grid(row=8, column=1)
+        w = OptionMenu(self.window, variable, *NUMBERS)
+        w.configure(width=20)
+        w.grid(row=8, column=1)
         # w.pack()
 
         # Label(self.window, text="").pack()
@@ -56,7 +70,9 @@ class NewTutorRequest:
 
         variable = StringVar(self.window)
         variable.set(NUMBERS[0])
-        w = OptionMenu(self.window, variable, *NUMBERS).grid(row=10, column=1)
+        w = OptionMenu(self.window, variable, *NUMBERS)
+        w.configure(width=20)
+        w.grid(row=10, column=1)
         # w.pack()
 
         # Label(self.window, text="").pack()
@@ -66,4 +82,4 @@ class NewTutorRequest:
         return
 
     def create_request(self):
-        None
+        pass
