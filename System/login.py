@@ -65,9 +65,7 @@ class Login:
         if response.status_code != 200:
             messagebox.showwarning(title="Login Error", message="Invalid Login")
         else:
-            # json_data = response.json()
-            # self._jwt = json_data['jwt']
-            # messagebox.showwarning(title="Success", message="Login Successful!")
+            messagebox.showwarning(title="Success", message="Login Successful!")
             self._window.destroy()
             s = SelectAction(self.USERS.getUserByUsername(self._uname))
             s.start()
