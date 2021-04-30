@@ -2,6 +2,9 @@ from tkinter import *
 from datetime import datetime
 import requests
 
+from subject import Subject
+
+
 class NewTutorRequest:
     window = None
     bid_type = None
@@ -36,7 +39,10 @@ class NewTutorRequest:
         # Label(self.window, text="").pack()
         Label(self.window, text="Subject: ").grid(row=2, column=0)
 
-        SUBJECTS = ["148e0af0-699b-4c1f-9e49-4de8816d121e", "8a921487-859f-4931-8743-f69c38f91b25", "841199ac-d73e-4726-888d-dfeb538f49e2"]
+
+        SUBJECTS = Subject().get_subject_names()
+        print(SUBJECTS)
+        # SUBJECTS = ["148e0af0-699b-4c1f-9e49-4de8816d121e", "8a921487-859f-4931-8743-f69c38f91b25", "841199ac-d73e-4726-888d-dfeb538f49e2"]
 
         self.subject = StringVar(self.window)
         self.subject.set(SUBJECTS[0])
@@ -128,7 +134,7 @@ class NewTutorRequest:
             "type": self.bid_type.get(),
             "initiatorId": self.current_user.id,
             "dateCreated": present_time,
-            "subjectId": self.subject.get(),
+            "subjectId": Subject().get_id_by_name(self.subject.get()),
             "additionalInfo": {}
             }
         )
