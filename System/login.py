@@ -67,5 +67,5 @@ class Login:
         else:
             messagebox.showwarning(title="Success", message="Login Successful!")
             self._window.destroy()
-            s = SelectAction(self.USERS.getUserByUsername(self._uname))
+            s = SelectAction(self.USERS.get_user_by_user_name(self._uname))
             s.start()

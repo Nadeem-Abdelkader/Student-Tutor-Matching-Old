@@ -1,7 +1,5 @@
 from tkinter import messagebox
-
 import requests
-
 from user import *
 
 root_url = 'https://fit3077.com/api/v1'
@@ -23,7 +21,7 @@ class UserCollection:
         else:
             messagebox.showwarning(title="Load Users Error", message=response.reason)
 
-    def getUserByUsername(self, uname):
+    def get_user_by_user_name(self, uname):
         for user in self.users:
             if user.username == uname:
                 return user
