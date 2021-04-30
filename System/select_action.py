@@ -15,6 +15,7 @@ class SelectAction:
     def __init__(self, current):
         self.current_user = current
 
+
     def start(self):
         self.window = Tk()
         self.window.geometry('300x250')
@@ -31,7 +32,7 @@ class SelectAction:
 
     def new_request(self):
         self.window.destroy()
-        s = NewTutorRequest()
+        s = NewTutorRequest(self.current_user, SelectAction.API_KEY)
         s.start()
 
     def bid_on_student(self):
@@ -43,3 +44,4 @@ class SelectAction:
         self.window.destroy()
         s = SeeContracts()
         s.start()
+
