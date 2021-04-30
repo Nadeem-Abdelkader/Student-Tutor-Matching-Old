@@ -36,8 +36,8 @@ class SelectAction:
         s.start()
 
     def bid_on_student(self):
-        self.window.destroy(self.current_user, SelectAction.API_KEY)
-        s = BidOnStudent()
+        self.window.destroy()
+        s = BidOnStudent(self.current_user, self.API_KEY)
         s.start()
 
     def see_contract(self):
