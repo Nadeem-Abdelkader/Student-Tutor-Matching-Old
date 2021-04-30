@@ -1,13 +1,12 @@
 from tkinter import *
 from tkinter import messagebox
-
 import requests
 
 root_url = 'https://fit3077.com/api/v1'
 users_url = root_url + "/user"
 
 
-class LoginLayout:
+class Login:
     _api_key = None
     _window = None
     _unameIn = None
