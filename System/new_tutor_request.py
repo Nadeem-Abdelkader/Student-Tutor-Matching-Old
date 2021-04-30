@@ -26,7 +26,7 @@ class NewTutorRequest:
         # Label(self.window, text="").pack()
         Label(self.window, text="Bid Type: ").grid(row=0, column=0)
 
-        OPTIONS = ["Open", "Closed"]
+        OPTIONS = ["open", "closed"]
 
         self.bid_type = StringVar(self.window)
         self.bid_type.set(OPTIONS[0])
