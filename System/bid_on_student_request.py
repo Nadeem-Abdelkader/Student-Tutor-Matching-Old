@@ -1,9 +1,4 @@
 from tkinter import *
-from tkinter import messagebox
-import requests
-
-# from select_action import SelectAction
-from user_collection import UserCollection
 
 root_url = 'https://fit3077.com/api/v1'
 users_url = root_url + "/user"
