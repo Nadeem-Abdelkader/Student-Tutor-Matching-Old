@@ -1,6 +1,9 @@
 from tkinter import *
 import requests
 
+from subject import Subject
+
+
 class BidOnStudent:
     window = None
 
@@ -15,7 +18,7 @@ class BidOnStudent:
 
         Label(self.window, text="Search request for subject: ").grid(row=0, column=0)
 
-        SUBJECTS = ["placeholder", "placeholder"]
+        SUBJECTS = Subject().get_subject_names()
 
         variable = StringVar(self.window)
         variable.set(SUBJECTS[0])

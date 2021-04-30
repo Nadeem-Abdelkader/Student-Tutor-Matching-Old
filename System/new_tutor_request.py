@@ -145,6 +145,6 @@ class NewTutorRequest:
 
         self.window.destroy()
         additionalInfo = {"competency" : self.competency.get(), "hours_per_week": self.hours_per_session.get(),
-                          "sessions_per_week" : self.sessions_per_week.get(), "rate_per_session" : self.rate_per_session}
+                          "sessions_per_week" : self.sessions_per_week.get(), "rate_per_session" : self.rate_per_session.get()}
         d = NewRequestDetails(json_data, additionalInfo)
         d.start()
