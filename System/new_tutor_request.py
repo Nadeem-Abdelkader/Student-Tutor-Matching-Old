@@ -76,12 +76,17 @@ class NewTutorRequest:
         # Label(self.window, text="").pack()
         Label(self.window, text="Rate per session: ").grid(row=10, column=0)
 
-        variable = StringVar(self.window)
-        variable.set(NUMBERS[0])
-        w = OptionMenu(self.window, variable, *NUMBERS)
-        w.configure(width=20)
-        w.grid(row=10, column=1)
+        # variable = StringVar(self.window)
+        # variable.set(NUMBERS[0])
+        # w = OptionMenu(self.window, variable, *NUMBERS)
+        # w.configure(width=20)
+        # w.grid(row=10, column=1)
         # w.pack()
+
+        rate = Entry(self.window, textvariable="rate")
+        rate.configure(width=20)
+        rate.grid(row=10, column=1)
+
 
         # Label(self.window, text="").pack()
         Button(text="Create Request", height="2", width="20", command=self.create_request).grid(row=12, column=1)
