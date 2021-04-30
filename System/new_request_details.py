@@ -13,7 +13,7 @@ class NewRequestDetails:
     def start(self):
         self.window = Tk()
         self.window.title("Request Details" + str(self.json_data['id']))
-        self.window.geometry('500x450')
+        self.window.geometry('450x450')
 
         Label(self.window, text="Request Details: ").grid(row=0, column=0)
 
