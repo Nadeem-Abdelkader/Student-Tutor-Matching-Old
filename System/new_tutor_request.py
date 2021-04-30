@@ -41,7 +41,7 @@ class NewTutorRequest:
 
 
         SUBJECTS = Subject().get_subject_names()
-        print(SUBJECTS)
+        # print(SUBJECTS)
         # SUBJECTS = ["148e0af0-699b-4c1f-9e49-4de8816d121e", "8a921487-859f-4931-8743-f69c38f91b25", "841199ac-d73e-4726-888d-dfeb538f49e2"]
 
         self.subject = StringVar(self.window)
