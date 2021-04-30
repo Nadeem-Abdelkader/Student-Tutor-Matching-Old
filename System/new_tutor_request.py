@@ -27,7 +27,7 @@ class NewTutorRequest:
 
         self.bid_type = StringVar(self.window)
         self.bid_type.set(OPTIONS[0])
-        w = OptionMenu(self.window, self.bid_type, *OPTIONS, command= self.set_bid_type)
+        w = OptionMenu(self.window, self.bid_type, *OPTIONS)
         w.configure(width=20)
         w.grid(row=0, column=1)
         # print(variable.get())
@@ -40,7 +40,7 @@ class NewTutorRequest:
 
         self.subject = StringVar(self.window)
         self.subject.set(SUBJECTS[0])
-        w = OptionMenu(self.window, self.subject, *SUBJECTS, command= self.set_subject)
+        w = OptionMenu(self.window, self.subject, *SUBJECTS)
         w.configure(width=20)
         w.grid(row=2, column=1)
 
@@ -51,7 +51,7 @@ class NewTutorRequest:
 
         self.competency = StringVar(self.window)
         self.competency.set(NUMBERS[0])
-        w = OptionMenu(self.window, self.competency, *NUMBERS, command= self.set_competency)
+        w = OptionMenu(self.window, self.competency, *NUMBERS)
         w.configure(width=20)
         w.grid(row=4, column=1)
         # w.pack()
@@ -60,7 +60,7 @@ class NewTutorRequest:
 
         self.hours_per_session = StringVar(self.window)
         self.hours_per_session.set(NUMBERS[0])
-        w = OptionMenu(self.window, self.hours_per_session, *NUMBERS, command= self.set_hours_per_session)
+        w = OptionMenu(self.window, self.hours_per_session, *NUMBERS)
         w.configure(width=20)
         w.grid(row=6, column=1)
         # w.pack()
@@ -70,7 +70,7 @@ class NewTutorRequest:
 
         self.sessions_per_week = StringVar(self.window)
         self.sessions_per_week.set(NUMBERS[0])
-        w = OptionMenu(self.window, self.sessions_per_week, *NUMBERS,command= self.set_session_per_week)
+        w = OptionMenu(self.window, self.sessions_per_week, *NUMBERS)
         w.configure(width=20)
         w.grid(row=8, column=1)
         # w.pack()
@@ -96,29 +96,29 @@ class NewTutorRequest:
         return
 
 
-    def set_bid_type(self,value):
-        NewTutorRequest.bid_type = self.bid_type.get()
-        print(NewTutorRequest.bid_type)
-
-    def set_subject(self,value):
-        NewTutorRequest.subject = self.subject.get()
-        print(NewTutorRequest.subject)
-
-    def set_competency(self, value):
-        NewTutorRequest.competency = self.competency.get()
-        print(NewTutorRequest.competency)
-
-    def set_hours_per_session(self,value):
-        NewTutorRequest.hours_per_session = self.hours_per_session.get()
-        print(NewTutorRequest.hours_per_session)
-
-    def set_session_per_week(self,value):
-        NewTutorRequest.sessions_per_week  = self.sessions_per_week.get()
-        print(NewTutorRequest.sessions_per_week)
-
-    def set_rate_per_session(self,value):
-        NewTutorRequest.rate_per_session =  self.rate_per_session.get()
-        print(NewTutorRequest.rate_per_session)
+    # def set_bid_type(self,value):
+    #     NewTutorRequest.bid_type = self.bid_type.get()
+    #     print(NewTutorRequest.bid_type)
+    #
+    # def set_subject(self,value):
+    #     NewTutorRequest.subject = self.subject.get()
+    #     print(NewTutorRequest.subject)
+    #
+    # def set_competency(self, value):
+    #     NewTutorRequest.competency = self.competency.get()
+    #     print(NewTutorRequest.competency)
+    #
+    # def set_hours_per_session(self,value):
+    #     NewTutorRequest.hours_per_session = self.hours_per_session.get()
+    #     print(NewTutorRequest.hours_per_session)
+    #
+    # def set_session_per_week(self,value):
+    #     NewTutorRequest.sessions_per_week  = self.sessions_per_week.get()
+    #     print(NewTutorRequest.sessions_per_week)
+    #
+    # def set_rate_per_session(self,value):
+    #     NewTutorRequest.rate_per_session =  self.rate_per_session.get()
+    #     print(NewTutorRequest.rate_per_session)
 
     def create_request(self):
         createbidurl = 'https://fit3077.com/api/v1/bid'
