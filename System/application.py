@@ -5,8 +5,7 @@ class Application:
     API_KEY = "mPRM67bLTWDwchrMCtBCrWbh89tQb6"
 
     def __init__(self):
-        a = Login(self.API_KEY)
-        a.login()
+        Login(self.API_KEY).login()
 
 
 if __name__ == "__main__":

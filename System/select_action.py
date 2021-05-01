@@ -32,16 +32,13 @@ class SelectAction:
 
     def new_request(self):
         self.window.destroy()
-        s = NewTutorRequest(self.current_user, SelectAction.API_KEY)
-        s.start()
+        NewTutorRequest(self.current_user, SelectAction.API_KEY).start()
 
     def bid_on_student(self):
         self.window.destroy()
-        s = BidOnStudent(self.current_user, self.API_KEY)
-        s.start()
+        BidOnStudent(self.current_user, self.API_KEY).start()
 
     def see_contract(self):
         self.window.destroy()
-        s = SeeContracts()
-        s.start()
+        SeeContracts().start()
 
