@@ -21,7 +21,7 @@ class NewTutorRequest:
         self.current_user = current
         self.api_key = api_key
 
-    def start(self):
+    def main(self):
         self.window = Tk()
         self.window.title("New Tutor Request")
         self.window.geometry('400x200')
@@ -98,4 +98,4 @@ class NewTutorRequest:
                                  )
         json_data = response.json()
         self.window.destroy()
-        NewRequestDetails(json_data).start()
+        NewRequestDetails(json_data).main()

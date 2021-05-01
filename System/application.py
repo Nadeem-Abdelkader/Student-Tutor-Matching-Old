@@ -9,4 +9,4 @@ class Application:
 
 
 if __name__ == "__main__":
-    a = Application()
+    Application()

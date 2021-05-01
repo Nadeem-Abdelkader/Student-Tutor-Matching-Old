@@ -6,6 +6,7 @@ from subject import Subject
 root_url = 'https://fit3077.com/api/v1'
 bid_url = root_url + "/bid"
 
+
 class BidOnStudent:
     window = None
     current_user = None
@@ -20,7 +21,7 @@ class BidOnStudent:
         self.api_key = api_key
         self.all_bids = self.see_all_bids()
 
-    def start(self):
+    def main(self):
         self.window = Tk()
         self.window.title("Bid on Student Request")
         self.window.geometry('700x600')
@@ -45,7 +46,7 @@ class BidOnStudent:
 
         Text(self.window, height=11, width=40).grid(row=5)
 
-        Button(self.window, text='Display Selected Bid Details', command=self.get_selected_item).grid(row=6, column=0)
+        Button(self.window, text='Display Selected Bid Details', command=self.get_selected_bid_details).grid(row=6, column=0)
 
         Label(self.window, text="Create a bid: ").grid(row=7, column=0)
 
@@ -106,7 +107,7 @@ class BidOnStudent:
         self.list_box.grid(row=3)
         self.list_box.configure(width=35)
 
-    def get_selected_item(self):
+    def get_selected_bid_details(self):
         for i in self.list_box.curselection():
             self.selected_bid = self.list_box.get(i)
         for bid in self.all_bids:
@@ -116,7 +117,8 @@ class BidOnStudent:
                 selected_bid_details_text_area = Text(self.window)
                 selected_bid_details_text_area.insert(INSERT, str("id: ") + str(bid['id']) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("type: ") + str(bid['type']) + "\n")
-                selected_bid_details_text_area.insert(INSERT, str("Initiator: ") + str(bid['initiator']['givenName']) + " " + str(
+                selected_bid_details_text_area.insert(INSERT, str("Initiator: ") + str(
+                    bid['initiator']['givenName']) + " " + str(
                     bid['initiator']['familyName']) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("Date Created: ") + str(bid['dateCreated']) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("Date Closed: ") + str(bid['dateClosedDown']) + "\n")
@@ -139,7 +141,8 @@ class BidOnStudent:
                     rate_per_session = None
                 selected_bid_details_text_area.insert(INSERT, str("Competency: ") + str(competency) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("Hours Per Week: ") + str(hours_per_week) + "\n")
-                selected_bid_details_text_area.insert(INSERT, str("Sessions Per Week: ") + str(sessions_per_week) + "\n")
+                selected_bid_details_text_area.insert(INSERT,
+                                                      str("Sessions Per Week: ") + str(sessions_per_week) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("Rate Per Session: ") + str(rate_per_session) + "\n")
                 selected_bid_details_text_area.grid(row=5)
                 selected_bid_details_text_area.configure(width=40, height=11)

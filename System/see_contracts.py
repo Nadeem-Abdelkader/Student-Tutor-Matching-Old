@@ -7,7 +7,7 @@ class SeeContracts:
     def __init__(self):
         pass
 
-    def start(self):
+    def main(self):
         self.window = Tk()
         self.window.title("See Your Contracts")
         self.window.geometry('300x250')

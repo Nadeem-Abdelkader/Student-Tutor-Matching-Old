@@ -8,7 +8,7 @@ class NewRequestDetails:
     def __init__(self, json_data):
         self.json_data = json_data
 
-    def start(self):
+    def main(self):
         self.window = Tk()
         self.window.title("Request Details: " + str(self.json_data['id']))
         self.window.geometry('450x450')
