@@ -12,6 +12,7 @@ class BidOnStudent:
     all_bids = None
     list_box = None
     selected_bid = None
+
     def __init__(self, current, api_key):
         self.current_user = current
         self.api_key = api_key
@@ -56,7 +57,8 @@ class BidOnStudent:
         t.grid(row=5)
         # a.grid(row=3)
 
-        btn = Button(self.window, text = 'Display Selected Bid Details', command = self.get_selected_item).grid(row=6, column=0)
+        btn = Button(self.window, text='Display Selected Bid Details', command=self.get_selected_item).grid(row=6,
+                                                                                                            column=0)
 
         Label(self.window, text="Create a bid: ").grid(row=7, column=0)
 
@@ -88,12 +90,9 @@ class BidOnStudent:
 
         Label(self.window, text="OR").grid(row=8, column=2)
 
-
         Button(text="Buy Out Request", command=self.buy_out_request).grid(row=8, column=3)
 
         Button(text="Message Student", command=self.message_student).grid(row=9, column=3)
-
-
 
         self.window.mainloop()
 
@@ -101,7 +100,7 @@ class BidOnStudent:
 
     def see_all_bids(self):
         bidurl = "https://fit3077.com/api/v1/bid?fields="
-        response = requests.get(url=bidurl, headers={'Authorization':'mPRM67bLTWDwchrMCtBCrWbh89tQb6'})
+        response = requests.get(url=bidurl, headers={'Authorization': 'mPRM67bLTWDwchrMCtBCrWbh89tQb6'})
         print(response.json())
         return response.json()
         pass
@@ -147,12 +146,11 @@ class BidOnStudent:
                 self.listbox2 = Listbox(self.window)
                 self.listbox2.insert(1, str("id: ") + str(j['id']) + "\n")
                 self.listbox2.insert(2, str("type: ") + str(j['type']) + "\n")
-                self.listbox2.insert(3, str("Initiator: ") + str(j['initiator']['givenName']) + " " + str(j['initiator']['familyName']) + "\n")
+                self.listbox2.insert(3, str("Initiator: ") + str(j['initiator']['givenName']) + " " + str(
+                    j['initiator']['familyName']) + "\n")
                 self.listbox2.insert(4, str("Date Created: ") + str(j['dateCreated']) + "\n")
                 self.listbox2.insert(5, str("Date Closed: ") + str(j['dateClosedDown']) + "\n")
                 self.listbox2.insert(6, str("Subject: ") + str(j['subject']['name']) + "\n")
                 self.listbox2.grid(row=5)
                 self.listbox2.configure(width=35)
                 # print(j['id'])
-
-
