@@ -1,5 +1,6 @@
-from tkinter import *
 from datetime import datetime
+from tkinter import *
+
 import requests
 
 from new_request_details import NewRequestDetails
@@ -7,6 +8,7 @@ from subject import Subject
 
 root_url = 'https://fit3077.com/api/v1'
 bid_url = root_url + "/bid"
+
 
 class NewTutorRequest:
     window = None

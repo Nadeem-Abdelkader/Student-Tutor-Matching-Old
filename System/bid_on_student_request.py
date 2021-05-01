@@ -1,4 +1,5 @@
 from tkinter import *
+
 import requests
 
 from subject import Subject
@@ -46,7 +47,8 @@ class BidOnStudent:
 
         Text(self.window, height=11, width=40).grid(row=5)
 
-        Button(self.window, text='Display Selected Bid Details', command=self.get_selected_bid_details).grid(row=6, column=0)
+        Button(self.window, text='Display Selected Bid Details', command=self.get_selected_bid_details).grid(row=6,
+                                                                                                             column=0)
 
         Label(self.window, text="Create a bid: ").grid(row=7, column=0)
 

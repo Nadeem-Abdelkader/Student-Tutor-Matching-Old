@@ -12,8 +12,8 @@ class Subject:
 
     def main(self):
         response = requests.get(
-            url= str(subjects_url) + str("?"),
-            headers={'Authorization': self.API_KEY, "Content-Type":"application/json"}
+            url=str(subjects_url) + str("?"),
+            headers={'Authorization': self.API_KEY, "Content-Type": "application/json"}
         )
         return response.json()
 
