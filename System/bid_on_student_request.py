@@ -8,9 +8,12 @@ class BidOnStudent:
     window = None
     current_user = None
     api_key = None
+    subject = None
+    all_bids = None
     def __init__(self, current, api_key):
         self.current_user = current
         self.api_key = api_key
+        self.all_bids = self.see_all_bids()
 
     def start(self):
         self.window = Tk()
@@ -21,20 +24,26 @@ class BidOnStudent:
 
         SUBJECTS = Subject().get_subject_names()
 
-        variable = StringVar(self.window)
-        variable.set(SUBJECTS[0])
-        w = OptionMenu(self.window, variable, *SUBJECTS)
+        self.subject = StringVar(self.window)
+        self.subject.set(SUBJECTS[0])
+        w = OptionMenu(self.window, self.subject, *SUBJECTS, command=self.display_bids_for_subject)
         w.configure(width=20)
         w.grid(row=0, column=1)
 
         Label(self.window, text="Available requests: ").grid(row=2, column=0)
 
         # left as text for now
-        t = Text(self.window, height=10, width=40)
+        t = Text(self.window, height=10, width=35)
         t.grid(row=3)
-        x = self.see_all_bids()
-        for i in x:
-            t.insert(INSERT, str(i['id']) + "\n")
+        # x = self.see_all_bids()
+        # Lb1 = Listbox(self.window)
+        # n = 1
+        # for i in x:
+        #     if i['subject']['name'] == self.subject:
+        #         Lb1.insert(1, str(i['id']) + "\n")
+        #     n+=1
+        # Lb1.grid(row=3)
+        # Lb1.configure(width=40)
         t.config(state=DISABLED)
         # a.grid(row=3)
 
@@ -101,3 +110,15 @@ class BidOnStudent:
 
     def message_student(self):
         pass
+
+    def display_bids_for_subject(self, subject):
+        Lb1 = Listbox(self.window)
+        n = 1
+        for i in self.all_bids:
+            # print(self.subject)
+            # print(i['subject']['name'])
+            if i['subject']['name'] == subject:
+                Lb1.insert(1, str(i['id']) + "\n")
+            n += 1
+        Lb1.grid(row=3)
+        Lb1.configure(width=35)
