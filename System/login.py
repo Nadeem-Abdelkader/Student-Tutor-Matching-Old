@@ -65,7 +65,7 @@ class Login:
         if response.status_code != 200:
             messagebox.showwarning(title="Login Error", message="Invalid Login")
         else:
-            messagebox.showwarning(title="Success", message="Login Successful!")
+            messagebox.showinfo(title="Success", message="Login Successful!")
             self._window.destroy()
             s = SelectAction(self.USERS.get_user_by_user_name(self._uname))
             s.start()
