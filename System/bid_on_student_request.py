@@ -30,8 +30,12 @@ class BidOnStudent:
         Label(self.window, text="Available requests: ").grid(row=2, column=0)
 
         # left as text for now
-        t = Text(self.window, height=5, width=40)
+        t = Text(self.window, height=10, width=40)
         t.grid(row=3)
+        x = self.see_all_bids()
+        for i in x:
+            t.insert(INSERT, str(i['id']) + "\n")
+        t.config(state=DISABLED)
         # a.grid(row=3)
 
         Label(self.window, text="Request detail: ").grid(row=4, column=0)
@@ -39,9 +43,6 @@ class BidOnStudent:
         # left as text for now
         t = Text(self.window, height=5, width=40)
         t.grid(row=5)
-        # x = self.see_all_bids()
-        # for i in x:
-        #     t.insert(INSERT, str(i) + "\n")
         # a.grid(row=3)
 
         Label(self.window, text="Create a bid: ").grid(row=6, column=0)

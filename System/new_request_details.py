@@ -27,17 +27,22 @@ class NewRequestDetails:
         t.insert(INSERT, str("Hours per Week: ") + str(self.json_data['additionalInfo']['hours_per_week'])+ str("\n"))
         t.insert(INSERT, str("Sessions per Week: ") + str(self.json_data['additionalInfo']['sessions_per_week'])+ str("\n"))
         t.insert(INSERT, str("Rate per Session: ") + str(self.json_data['additionalInfo']['rate_per_session']))
+        t.config(state=DISABLED)
 
 
         Label(self.window, text="Current Bids: ").grid(row=4, column=0)
 
         t = Text(self.window, height=5, width=40)
         t.grid(row=7)
+        t.config(state=DISABLED)
+
 
         Label(self.window, text="Bid Details: ").grid(row=9, column=0)
 
         t = Text(self.window, height=5, width=40)
         t.grid(row=12)
+        t.config(state=DISABLED)
+
 
 
 
