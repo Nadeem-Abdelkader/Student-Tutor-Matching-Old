@@ -131,20 +131,18 @@ class NewTutorRequest:
         createbidurl = 'https://fit3077.com/api/v1/bid'
         t = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
         present_time = t[0:-3] + 'Z'
-        response = requests.post(url = createbidurl, headers={'Authorization': self.api_key}, data={
+        response = requests.post(url = createbidurl, headers={'Authorization': self.api_key}, json={
             "type": self.bid_type.get(),
             "initiatorId": self.current_user.id,
             "dateCreated": present_time,
             "subjectId": Subject().get_id_by_name(self.subject.get()),
-            "additionalInfo": {}
+            "additionalInfo": {"competency" : self.competency.get(), "hours_per_week": self.hours_per_session.get(),
+                          "sessions_per_week" : self.sessions_per_week.get(), "rate_per_session" : self.rate_per_session.get()}
             }
         )
         json_data = response.json()
         print('Status code is: {} {}'.format(response.status_code, response.reason))
         print('Full JSON response is: {}'.format(json_data))
-
-        additionalInfo = {"competency" : self.competency.get(), "hours_per_week": self.hours_per_session.get(),
-                          "sessions_per_week" : self.sessions_per_week.get(), "rate_per_session" : self.rate_per_session.get()}
         self.window.destroy()
-        d = NewRequestDetails(json_data, additionalInfo)
+        d = NewRequestDetails(json_data)
         d.start()
