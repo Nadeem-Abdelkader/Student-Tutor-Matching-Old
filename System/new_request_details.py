@@ -2,13 +2,24 @@ from tkinter import *
 
 
 class NewRequestDetails:
+    """
+    This class is responsible of displaying the request details when a student creates a new request
+    """
+    # Class Variables
     window = None
     json_data = None
 
     def __init__(self, json_data):
+        """
+        This __init__ method assigns the input json_daya given to the class variable json_data
+        """
         self.json_data = json_data
 
     def main(self):
+        """
+        THis method displays the Request Details Screen which shows the newly created request details
+        """
+        # This portion is responsible for the formatting of the screen
         self.window = Tk()
         self.window.title("Request Details: " + str(self.json_data['id']))
         self.window.geometry('450x450')
@@ -46,4 +57,3 @@ class NewRequestDetails:
         text_area.config(state=DISABLED)
 
         self.window.mainloop()
-        return

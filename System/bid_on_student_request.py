@@ -4,11 +4,17 @@ import requests
 
 from subject import Subject
 
+# Global variables
 root_url = 'https://fit3077.com/api/v1'
 bid_url = root_url + "/bid"
 
 
 class BidOnStudent:
+    """
+    This class is responsible for the Bid on Student Request screen that allows tutors to view students requests and
+    bid on them
+    """
+    # Class variables
     window = None
     current_user = None
     api_key = None
@@ -17,12 +23,22 @@ class BidOnStudent:
     list_box = None
     selected_bid = None
 
-    def __init__(self, current, api_key):
-        self.current_user = current
+    def __init__(self, current_user, api_key):
+        """
+        This __init__ method initialises some of class variables, either according to input ot by calling another method
+        :param current_user: current user of the system
+        :param api_key: api key
+        """
+        self.current_user = current_user
         self.api_key = api_key
         self.all_bids = self.see_all_bids()
 
     def main(self):
+        """
+        This method creates the Bid on Student Request screen which will show tutors the available requests for each
+        subject and if the tutor wishes the request details
+        """
+        # This portion is responsible of creating the window and formatting it
         self.window = Tk()
         self.window.title("Bid on Student Request")
         self.window.geometry('700x600')
@@ -84,9 +100,11 @@ class BidOnStudent:
 
         self.window.mainloop()
 
-        return
-
     def see_all_bids(self):
+        """
+        This methods retrieves all bids available
+        :return: all bids available
+        """
         response = requests.get(url=bid_url, headers={'Authorization': 'mPRM67bLTWDwchrMCtBCrWbh89tQb6'})
         return response.json()
 
@@ -100,8 +118,13 @@ class BidOnStudent:
         pass
 
     def display_bids_for_subject(self, subject):
+        """
+        This method displays all bids available to the selected subject in a clickable list box
+        :param subject: subject to display bids for
+        """
         self.list_box = Listbox(self.window)
         n = 1
+        # loops in bids and if name of subject matches the subject name were looking for then add to listbox
         for bid in self.all_bids:
             if bid['subject']['name'] == subject:
                 self.list_box.insert(1, str(bid['id']) + "\n")
@@ -110,8 +133,13 @@ class BidOnStudent:
         self.list_box.configure(width=35)
 
     def get_selected_bid_details(self):
+        """
+        This method gets the selected bid details and inserts them into a text area
+        """
+        # getting the selected bid
         for i in self.list_box.curselection():
             self.selected_bid = self.list_box.get(i)
+        # looping the bids and if id matches the id were looking for add its details to text area
         for bid in self.all_bids:
             current_id = bid['id']
             selected_bid_id = str(self.selected_bid).rstrip("\n")
@@ -125,6 +153,7 @@ class BidOnStudent:
                 selected_bid_details_text_area.insert(INSERT, str("Date Created: ") + str(bid['dateCreated']) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("Date Closed: ") + str(bid['dateClosedDown']) + "\n")
                 selected_bid_details_text_area.insert(INSERT, str("Subject: ") + str(bid['subject']['name']) + "\n")
+                # this portion is responsible to get the additional info if available, if not assign to None
                 try:
                     competency = bid['additionalInfo']['competency']
                 except KeyError:
