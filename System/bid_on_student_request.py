@@ -1,5 +1,5 @@
 from tkinter import *
-
+from datetime import datetime
 import requests
 
 from subject import Subject
@@ -56,6 +56,8 @@ class BidOnStudent:
         Label(self.window, text="Available requests: ").grid(row=2, column=0)
 
         text_area = Text(self.window, height=10, width=35)
+        for i in self.see_all_bids():
+            text_area.insert(INSERT, i['id'])
         text_area.grid(row=3)
         text_area.config(state=DISABLED)
 
@@ -112,10 +114,26 @@ class BidOnStudent:
         pass
 
     def buy_out_request(self):
-        pass
+        # buyouturl = 'https://fit3077.com/api/v1/bid/' + self.selected_bid.id + '/close-down'
+        buyouturl = 'https://fit3077.com/api/v1/bid/bc06e9ad-5d20-4dce-a176-a6ac73b26b35/close-down'
+        response = requests.post(url=buyouturl, headers={'Authorization':self.api_key})
+        json_data = response.json()
 
     def message_student(self):
-        pass
+        msgurl = 'https://fit3077.com/api/v1/message'
+        date_time = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
+        present_time = date_time[0:-3] + 'Z'
+        # Using the web service post() method to create request
+        response = requests.post(url=msgurl, headers={'Authorization': self.api_key}, json={
+            # "bidId": self.selected_bid.id
+            "bidId": self.see_all_bids()[0]['id'],
+            "posterId": self.current_user.id,
+            "datePosted": present_time,
+            "content": 'testing12345',
+            "additionalInfo":{}
+        }
+                                 )
+        json_data = response.json()
 
     def display_bids_for_subject(self, subject):
         """
