@@ -56,8 +56,6 @@ class BidOnStudent:
         Label(self.window, text="Available requests: ").grid(row=2, column=0)
 
         text_area = Text(self.window, height=10, width=35)
-        for i in self.see_all_bids():
-            text_area.insert(INSERT, i['id'])
         text_area.grid(row=3)
         text_area.config(state=DISABLED)
 
