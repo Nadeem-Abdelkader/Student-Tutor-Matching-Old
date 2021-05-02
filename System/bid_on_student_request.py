@@ -1,5 +1,7 @@
 from tkinter import *
 import requests
+import json
+from datetime import datetime
 
 from subject import Subject
 
@@ -34,18 +36,14 @@ class BidOnStudent:
 
         Label(self.window, text="Available requests: ").grid(row=2, column=0)
 
+        self.all_bids = StringVar(self.window)
         # left as text for now
         t = Text(self.window, height=10, width=35)
+        t.config(spacing2=2)
         t.grid(row=3)
-        # x = self.see_all_bids()
-        # Lb1 = Listbox(self.window)
-        # n = 1
-        # for i in x:
-        #     if i['subject']['name'] == self.subject:
-        #         Lb1.insert(1, str(i['id']) + "\n")
-        #     n+=1
-        # Lb1.grid(row=3)
-        # Lb1.configure(width=40)
+        for i in self.see_all_bids():
+            t.insert(END,i['id'] )
+
         t.config(state=DISABLED)
         # a.grid(row=3)
 
@@ -102,18 +100,35 @@ class BidOnStudent:
     def see_all_bids(self):
         bidurl = "https://fit3077.com/api/v1/bid?fields="
         response = requests.get(url=bidurl, headers={'Authorization':'mPRM67bLTWDwchrMCtBCrWbh89tQb6'})
-        print(response.json())
+        # for i in response.json():
+        #     print(i['id'])
+        #
         return response.json()
+
         pass
 
     def create_bid(self):
         pass
 
     def buy_out_request(self):
-        pass
+        buyouturl = 'https://fit3077.com/api/v1/bid/' + self.selected_bid.id + "/close-down"
+        response = requests.post(url=buyouturl, headers={'Authorization':self.api_key})
 
     def message_student(self):
-        pass
+        msgurl = 'https://fit3077.com/api/v1/message'
+        t = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
+        present_time = t[0:-3] + 'Z'
+        response = requests.post(url=msgurl, headers={'Authorization':self.api_key}, json={
+            "bidId": self.see_all_bids()[0]['id'],
+            "posterId": self.current_user.id,
+            "datePosted":present_time,
+            "content":'testing890',
+        }
+                                 )
+        json_data = response.json()
+        print('Status code is: {} {}'.format(response.status_code, response.reason))
+        print('Full JSON response is: {}'.format(json_data))
+
 
     def display_bids_for_subject(self, subject):
         self.list_box = Listbox(self.window)
