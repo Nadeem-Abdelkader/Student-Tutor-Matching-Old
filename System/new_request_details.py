@@ -28,8 +28,8 @@ class NewRequestDetails:
 
         text_area = Text(self.window, height=15, width=50)
         text_area.grid(row=3)
-        text_area.insert(INSERT, str("Bid ID: ") + str(self.json_data['id']) + str("\n"))
-        text_area.insert(INSERT, str("Bid Type: ") + str(self.json_data['type']) + str("\n"))
+        text_area.insert(INSERT, str("ID: ") + str(self.json_data['id']) + str("\n"))
+        text_area.insert(INSERT, str("Type: ") + str(self.json_data['type']) + str("\n"))
         text_area.insert(INSERT, str("Initiator: ") + str(self.json_data['initiator']['givenName']) + " " + str(
             self.json_data['initiator']['familyName']) + str("\n"))
         text_area.insert(INSERT, str("Date Created: ") + str(self.json_data['dateCreated']) + str("\n"))

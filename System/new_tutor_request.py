@@ -42,7 +42,7 @@ class NewTutorRequest:
         self.window.title("New Tutor Request")
         self.window.geometry('400x200')
 
-        Label(self.window, text="Bid Type: ").grid(row=0, column=0)
+        Label(self.window, text="Type: ").grid(row=0, column=0)
 
         options = ["open", "closed"]
 
