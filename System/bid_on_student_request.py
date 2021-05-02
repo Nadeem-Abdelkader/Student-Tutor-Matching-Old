@@ -114,17 +114,23 @@ class BidOnStudent:
         pass
 
     def buy_out_request(self):
+        """
+        This method is responsible for allowing the tutor to buy out a student request
+        """
         # buyouturl = 'https://fit3077.com/api/v1/bid/' + self.selected_bid.id + '/close-down'
-        buyouturl = 'https://fit3077.com/api/v1/bid/bc06e9ad-5d20-4dce-a176-a6ac73b26b35/close-down'
-        response = requests.post(url=buyouturl, headers={'Authorization':self.api_key})
+        buy_out_url = 'https://fit3077.com/api/v1/bid/bc06e9ad-5d20-4dce-a176-a6ac73b26b35/close-down'
+        response = requests.post(url=buy_out_url, headers={'Authorization':self.api_key})
         json_data = response.json()
 
     def message_student(self):
-        msgurl = 'https://fit3077.com/api/v1/message'
+        """
+        This method is responsible for allowing tutor to message student
+        """
+        msg_url = 'https://fit3077.com/api/v1/message'
         date_time = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
         present_time = date_time[0:-3] + 'Z'
         # Using the web service post() method to create request
-        response = requests.post(url=msgurl, headers={'Authorization': self.api_key}, json={
+        response = requests.post(url=msg_url, headers={'Authorization': self.api_key}, json={
             # "bidId": self.selected_bid.id
             "bidId": self.see_all_bids()[0]['id'],
             "posterId": self.current_user.id,
