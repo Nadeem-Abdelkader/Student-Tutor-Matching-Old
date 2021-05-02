@@ -48,7 +48,7 @@ class BidOnStudent:
         subjects = Subject().get_subject_names()
 
         self.subject = StringVar(self.window)
-        self.subject.set(subjects[0])
+        self.subject.set(None)
         option_menu = OptionMenu(self.window, self.subject, *subjects, command=self.display_bids_for_subject)
         option_menu.configure(width=20)
         option_menu.grid(row=0, column=1)
@@ -63,7 +63,7 @@ class BidOnStudent:
 
         Text(self.window, height=11, width=40).grid(row=5)
 
-        Button(self.window, text='Display Selected Bid Details', command=self.get_selected_bid_details).grid(row=6,
+        Button(self.window, text='Display Selected Request Details', command=self.get_selected_bid_details).grid(row=6,
                                                                                                              column=0)
 
         Label(self.window, text="Create a bid: ").grid(row=7, column=0)
